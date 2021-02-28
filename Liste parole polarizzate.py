@@ -1,26 +1,4 @@
-import codecs
-
-
-
-## CARICAMENTO DEL TESTO
-
-a = codecs.open('./commentiLemma.txt','r','utf8')               # dos errores en esta linea
-
-testoTot = a.read()
-
-
-
-## CARICAMENTO DELLE RISORSE
-
-# listaPolarita = [('bello',2),('brutto',-2),('emozionante',+2)]
-
-##listaTesto = ['lo','spot','era','veramente','bello','ma','non','emozionante','!']
-
-# intensificazione = ['veramente']
-
-# negazione = ['non']
-
-polaritaLista = [
+polarita =[
     ('abbassare',-1),
     ('abbattere',-2),
     ('abbraccio',2),
@@ -47,7 +25,7 @@ polaritaLista = [
     ('amato',3),
     ('amo',2),
     ('amico',1),
-    ('ammalare',-2),
+    ('ammalare'-2,
     ('ammirazione',3),
     ('amore',3),
     ('angoscia',-3),
@@ -132,7 +110,7 @@ polaritaLista = [
     ('contro',-2),
     ('coraggio',2),
     ('coraggioso',2),
-    ('costoso',-2),
+    ('costoso',-2,
     ('credere',1),
     ('crisi',-2),
     ('cuore',2),
@@ -374,7 +352,7 @@ polaritaLista = [
     ('significato',1),
     ('signore',1),
     ('sincero',2),
-    ('smettere',-2),
+    ('smettere'-2),
     ('sociale',1),
     ('soddisfatto',2),
     ('soddisfare',2),
@@ -398,7 +376,7 @@ polaritaLista = [
     ('stancare',-2),
     ('storia',1),
     ('straordinario',3),
-    ('stufare',-2),
+    ('stufare'-2),
     ('stupendo',3),
     ('stupire',3),
     ('supportare',2),
@@ -435,7 +413,7 @@ polaritaLista = [
     ('viscido',-3),
     ('visionario',2),
     ('volere',1),
-    ('wow',3),
+    ('wow',3)
     ('andare avanti',2),
     ('andare tutto bene',2),
     ('avere mangiare fior fior di soldo',-3), 
@@ -469,8 +447,8 @@ polaritaLista = [
     ('non avere parola',2),
     ('non vedere ora',3),
     ('numero uno',3),
-    ('a il mondo',3), 
-    ('parola senza tempo',2),
+    ('a il mondo',3) 
+    ('parola senza tempo',2)
     ('pelle di oca',3),
     ('per sempre',3),
     ('piangere a dirotto',3),
@@ -569,7 +547,7 @@ polaritaLista = [
     ('waving hand',2),
     ('weary face',-2),
     ('winking face',2),
-    ('yellow heart',3) ]
+    ('yellow heart',3)]
 
 
 
@@ -630,75 +608,6 @@ interrogative =[
     'chissà',
     '?']
 
-
-listaPost = testoTot.split('\n')
-
-# print(listaPost[5])
-
-# listaPost = ['lo spot essere bello ma non emozionante !', 'un brutto pubblicità']
-
-##listaPost = ['bello questo immagine <<smiling face with sunglasses>> <<flexed biceps>>', 'un brutto pubblicità']
-
-
-for testo in listaPost:
-
-##testo = 'lo spot era bello ma non emozionante !'
-
-    listaTesto = testo.split(' ')
-
-
-
-    polaritaTotale=0
-
-    for c in range(0,len(listaTesto)):
-
-        polarita=0
-
-        for el in polaritaLista:
-
-            if listaTesto[c] == el[0]:
-
-                polarita = el[1]
-
-                if listaTesto[c-1] in negazione:
-
-                    polarita = polarita-1
-
-                if listaTesto[c-1] in intensificazione:
-
-                    polarita = polarita*1.5
-
-                if listaTesto[c+1] in intensificazione:
-
-                    polarita = polarita*1.5
-
-        polaritaTotale+=polarita
-
-        
-
-    print('--'+testo+'-- Polarità: '+str(polaritaTotale))
-
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
 
