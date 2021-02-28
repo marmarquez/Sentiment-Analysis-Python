@@ -1,0 +1,22 @@
+Ciao, sono Giusy. Ci siamo sentite su “Letuelezioni” per un aiuto sulla Sentiment Analysis su Python.
+Ti spiego bene di cosa avrei bisogno. Essendo una sentiment basata sul lessico ho due risorse lessicali a disposizione, che ti allego per farti capire meglio, 
+una è un testo che contiene i commenti da analizzare lemmatizzati (commentiLemma.txt) e l'altra è la lista di parole polarizzate con rispettivi valori di polarità, 
+intesificatori di polarità, downtoners e negazioni che modificano la polarità (lista parole polarizzate.py). Ho anche stabilito delle regole sintattiche, quindi in 
+che modo intesificatori di polarità, downtoners e negazione vanno a modificare la polarità (Regole sintattiche SA.docx). 
+Ora andrebbero caricate le risorse su Phyton e implementato il modulo per avere la polarità delle singole frasi. Io avrei già un codice/modulo per farlo 
+(che mi è stato inviato da un professore universitario) che ti allego (provaSentiment.py). 
+Io non riesco a farlo funzionare, mi risulta sempre “polarità 0”. 
+
+Ti ringrazio in anticipo per la disponibiltà!
+
+
+Hola, soy Giusy. Hablamos con "Letuelezioni" para obtener ayuda sobre el análisis de sentimientos en Python.
+Te explicaré bien lo que necesito. Al ser un sentimiento basado en el léxico tengo dos recursos léxicos disponibles, los cuales te adjunto para hacerte comprender
+ mejor, uno es un texto que contiene los comentarios lematizados a analizar (commentsLemma.txt) y el otro es la lista de palabras polarizadas con valores respectivos 
+de polaridad, identificadores de polaridad, downtoners y negaciones que modifican la polaridad (lista de palabras polarizadas.py). También he establecido algunas 
+reglas sintácticas, entonces, cómo los identificadores de polaridad, los downtoners y la negación cambian la polaridad (Syntactic Rules SA.docx).
+Ahora los recursos deben cargarse en Phyton y el módulo debe implementarse para tener la polaridad de las oraciones individuales. Ya tengo un código / 
+formulario para hacerlo (que me envió un profesor universitario) que te adjunto (testSentiment.py).
+No puedo hacer que funcione, siempre resulta ser "polaridad 0".
+
+¡Gracias de antemano por su disponibilidad! 
