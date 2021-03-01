@@ -1,7 +1,6 @@
 import codecs
 
 
-
 ## CARICAMENTO DEL TESTO
 
 a = codecs.open('./commentiLemma.txt','r','utf8')               # dos errores en esta linea
