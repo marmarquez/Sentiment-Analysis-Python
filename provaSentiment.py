@@ -3,7 +3,7 @@ import codecs
 
 ## CARICAMENTO DEL TESTO
 
-a = codecs.open('./commentiLemma.txt','r','utf8')               # dos errores en esta linea
+a = codecs.open('./prova.txt','r','utf8')               # dos errores en esta linea
 
 testoTot = a.read()
 
@@ -11,13 +11,6 @@ testoTot = a.read()
 
 ## CARICAMENTO DELLE RISORSE
 
-# listaPolarita = [('bello',2),('brutto',-2),('emozionante',+2)]
-
-##listaTesto = ['lo','spot','era','veramente','bello','ma','non','emozionante','!']
-
-# intensificazione = ['veramente']
-
-# negazione = ['non']
 
 polaritaLista = [
     ('abbassare',-1),
@@ -490,8 +483,11 @@ polaritaLista = [
     ('tenere il mano',2),
     ('toccare il cuore',3),
     ('tornare il sorriso',2),
-    ('valore aggiunto',2),
-    ('1st place medal',3),
+    ('valore aggiunto',2),]
+
+    
+emoji = [
+    ('1st place medal',3),                               # INIZIO EMOJI --------------------
     ('beating heart',3),
     ('black heart',3),
     ('blue heart',3),
@@ -630,74 +626,147 @@ interrogative =[
     '?']
 
 
-listaPost = testoTot.split('\n')
+listaPost = testoTot.split('\r')                # forma una lista, dove ogni elemento è una frase 
 
-# print(listaPost[5])
-
-# listaPost = ['lo spot essere bello ma non emozionante !', 'un brutto pubblicità']
-
-##listaPost = ['bello questo immagine <<smiling face with sunglasses>> <<flexed biceps>>', 'un brutto pubblicità']
+print(listaPost)                                #DEBUG
 
 
-for testo in listaPost:
+for frase in listaPost:                         # passare attraverso ogni frase
 
-##testo = 'lo spot era bello ma non emozionante !'
+    if frase != '':                             # scartare le frasi vuote [ERRORE]
 
-    listaTesto = testo.split(' ')
+        print (frase)                           #DEBUG
 
+        polarita = 0                            # per tener trraccia del valore della polarita
 
+        # ---- EMOJI -------------
 
-    polaritaTotale=0
+        for elemento in emoji:
 
-    for c in range(0,len(listaTesto)):
+            if (elemento[0] in frase):              # se alcune parola se trova all'interno della frase, somma il valore della polarita
 
-        polarita=0
+                print('trovata')                    #DEBUG
 
-        for el in polaritaLista:
+                conc = frase.count(elemento[0])
 
-            if listaTesto[c] == el[0]:
+                print(elemento[0])
 
-                polarita = el[1]
+                print(conc)
 
-                if listaTesto[c-1] in negazione:
-
-                    polarita = polarita-1
-
-                if listaTesto[c-1] in intensificazione:
-
-                    polarita = polarita*1.5
-
-                if listaTesto[c+1] in intensificazione:
-
-                    polarita = polarita*1.5
-
-        polaritaTotale+=polarita
-
-        
-
-    print('--'+testo+'-- Polarità: '+str(polaritaTotale))
-
-    
+                polarita += elemento[1]*conc         # somma il valore
 
 
+        for elemento in polaritaLista:           # scorre la lista delle parole con polarità 
+
+            if (elemento[0] in frase):             # se alcune parola se trova all'interno della frase, somma il valore della polarita
+
+                print('trovata')             #DEBUG
+
+                print(elemento[0])
+
+                polarita += elemento[1]         # somma il valore
+
+            # else:
+
+            #             for elemento in intensificazione:
+
+            #                 if (elemento in frase):             # se alcune parola se trova all'interno della frase, somma il valore della polarita
+
+            #                     print('conseguida')             #DEBUG
+
+            #                     polarita += elemento[1]         # somma il valore
+
+            #                     break
 
 
-
-
-
-
+        print('--'+frase+'-- Polarità: '+ str(polarita)+'\n')
 
 
 
 
+# for frase in listaPost:                         # prendi ogni frase del testo
+
+#     print(frase)
+
+#     if frase != '':
+
+#         if frase[0] == '<':
+
+#             print ('ES UN EMOJI')
+
+#             parole = frase[2:len(frase)-2]
+
+#             print(parole)
+
+#             polaritaTotale = 0
+
+#             for c in range(0,len(emoji)):          # va di parola in parola per ogni frase
+
+#                 print(c) 
+
+#                 polarita = 0
+
+#                 for el in emoji:                
+
+#                     if listaTesto[c] == el[0]:
+
+#                         polarita = el[1]
+
+#                         if listaTesto[c-1] in negazione:
+
+#                             polarita = polarita - 1
+
+#                         if listaTesto[c-1] in intensificazione:
+
+#                             polarita = polarita*1.5
+
+#                         if listaTesto[c+1] in intensificazione:
+
+#                             polarita = polarita*1.5
+
+#                 polaritaTotale += polarita
+
+#         else:
 
 
+#             print ('ES UN EMOJI')
+
+#             listaTesto = frase.split(' ')               # forma una lista con ogni parola della frase
 
 
+#             print(listaTesto)
 
 
+#             polaritaTotale = 0
 
-    
+#             for c in range(0,len(listaTesto)):          # va di parola in parola per ogni frase
+
+#                 print(c) 
+
+#                 polarita = 0
+
+#                 for el in polaritaLista:                
+
+#                     if listaTesto[c] == el[0]:
+
+#                         polarita = el[1]
+
+#                         if listaTesto[c-1] in negazione:
+
+#                             polarita = polarita - 1
+
+#                         if listaTesto[c-1] in intensificazione:
+
+#                             polarita = polarita*1.5
+
+#                         if listaTesto[c+1] in intensificazione:
+
+#                             polarita = polarita*1.5
+
+#                 polaritaTotale += polarita
+
+                
+#             print('--'+frase+'-- Polarità: '+ str(polaritaTotale)+'\n')
 
     
 
